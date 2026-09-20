@@ -1,7 +1,4 @@
-/* =====================================================
-   RESET
-===================================================== */
-
+```css
 * {
     margin: 0;
     padding: 0;
@@ -9,32 +6,17 @@
 }
 
 
-/* =====================================================
-   ROOT
-===================================================== */
-
 :root {
-
     --pink: #ff5c91;
-    --pink-light: #ffb5ca;
-    --pink-dark: #d82f68;
-
-    --white: #ffffff;
-
-    --background-1: #0d070c;
-    --background-2: #29121f;
-
+    --pink-light: #ffb6cc;
+    --pink-dark: #d92f68;
+    --bg1: #0b060a;
+    --bg2: #28121f;
 }
 
 
-/* =====================================================
-   BODY
-===================================================== */
-
 body {
-
     min-height: 100vh;
-
     overflow: hidden;
 
     font-family:
@@ -42,354 +24,272 @@ body {
         Arial,
         sans-serif;
 
-    color: var(--white);
+    color: white;
 
     background:
-
         radial-gradient(
             circle at 15% 15%,
-            rgba(255, 75, 135, 0.25),
+            rgba(255, 60, 120, .25),
             transparent 30%
         ),
 
         radial-gradient(
             circle at 85% 85%,
-            rgba(170, 45, 110, 0.25),
+            rgba(160, 40, 120, .25),
             transparent 35%
         ),
 
         linear-gradient(
             135deg,
-            var(--background-1),
-            var(--background-2),
-            #120811
+            var(--bg1),
+            var(--bg2),
+            #120810
         );
-
 }
 
 
-/* =====================================================
-   BACKGROUND
-===================================================== */
+/* ================= BACKGROUND ================= */
 
 .background {
-
     position: fixed;
-
     inset: 0;
 
     overflow: hidden;
 
     z-index: 0;
-
 }
 
 
-/* =====================================================
-   GLOW
-===================================================== */
-
 .glow {
-
     position: absolute;
 
-    width: 320px;
-    height: 320px;
+    width: 350px;
+    height: 350px;
 
     border-radius: 50%;
 
     filter: blur(100px);
 
-    opacity: 0.35;
+    opacity: .35;
 
-    animation: glowMove 9s infinite alternate ease-in-out;
-
+    animation:
+        glowMove 8s infinite alternate ease-in-out;
 }
 
 
-.glow-1 {
-
+.glow1 {
     background: #ff367c;
 
     top: -120px;
-
     left: -120px;
-
 }
 
 
-.glow-2 {
-
+.glow2 {
     background: #a12d79;
 
     right: -120px;
-
     bottom: -120px;
 
     animation-delay: 3s;
-
 }
 
 
 @keyframes glowMove {
 
-    0% {
-
+    from {
         transform:
             translate(0, 0)
             scale(1);
-
     }
 
-    100% {
-
+    to {
         transform:
             translate(70px, -50px)
             scale(1.3);
-
     }
-
 }
 
 
-/* =====================================================
-   STARS
-===================================================== */
+/* ================= STARS ================= */
 
-.stars span {
-
+.stars i {
     position: absolute;
 
     width: 3px;
-
     height: 3px;
 
     background: white;
 
     border-radius: 50%;
 
-    opacity: 0.4;
+    opacity: .5;
 
     animation:
-        twinkle 3s infinite alternate;
-
+        twinkle 2.5s infinite alternate;
 }
 
 
-.stars span:nth-child(1) {
-    left: 8%;
+.stars i:nth-child(1) {
+    left: 10%;
     top: 15%;
 }
 
-.stars span:nth-child(2) {
-    left: 20%;
-    top: 65%;
-    animation-delay: 1s;
-}
+.stars i:nth-child(2) {
+    left: 25%;
+    top: 70%;
 
-.stars span:nth-child(3) {
-    left: 35%;
-    top: 25%;
-    animation-delay: 2s;
-}
-
-.stars span:nth-child(4) {
-    left: 50%;
-    top: 12%;
     animation-delay: .5s;
 }
 
-.stars span:nth-child(5) {
-    left: 65%;
-    top: 75%;
-    animation-delay: 1.5s;
-}
-
-.stars span:nth-child(6) {
-    left: 78%;
+.stars i:nth-child(3) {
+    left: 40%;
     top: 20%;
-    animation-delay: 2s;
-}
 
-.stars span:nth-child(7) {
-    left: 90%;
-    top: 60%;
     animation-delay: 1s;
 }
 
-.stars span:nth-child(8) {
+.stars i:nth-child(4) {
+    left: 55%;
+    top: 80%;
+
+    animation-delay: 1.5s;
+}
+
+.stars i:nth-child(5) {
+    left: 70%;
+    top: 25%;
+
+    animation-delay: 2s;
+}
+
+.stars i:nth-child(6) {
+    left: 82%;
+    top: 65%;
+
+    animation-delay: .8s;
+}
+
+.stars i:nth-child(7) {
+    left: 90%;
+    top: 15%;
+
+    animation-delay: 1.2s;
+}
+
+.stars i:nth-child(8) {
     left: 45%;
-    top: 85%;
-    animation-delay: 2.5s;
+    top: 50%;
+
+    animation-delay: 1.8s;
 }
 
 
 @keyframes twinkle {
 
     from {
-
-        opacity: 0.15;
-
-        transform:
-            scale(.5);
-
+        opacity: .15;
+        transform: scale(.5);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            scale(1.5);
-
+        transform: scale(1.5);
     }
-
 }
 
 
-/* =====================================================
-   FLOATING HEARTS
-===================================================== */
+/* ================= HEART ================= */
 
 .hearts span {
-
     position: absolute;
 
     bottom: -60px;
 
-    color:
-        rgba(
-            255,
-            120,
-            165,
-            0.5
-        );
+    color: rgba(255, 120, 165, .45);
 
     font-size: 22px;
 
     animation:
-        floatHeart
-        linear
-        infinite;
-
+        floatHeart linear infinite;
 }
 
 
 .hearts span:nth-child(1) {
-
     left: 5%;
-
     animation-duration: 10s;
-
 }
 
 .hearts span:nth-child(2) {
-
     left: 17%;
-
     animation-duration: 13s;
-
     animation-delay: 2s;
-
 }
 
 .hearts span:nth-child(3) {
-
     left: 30%;
-
     animation-duration: 9s;
-
     animation-delay: 4s;
-
 }
 
 .hearts span:nth-child(4) {
-
     left: 42%;
-
     animation-duration: 12s;
-
     animation-delay: 1s;
-
 }
 
 .hearts span:nth-child(5) {
-
     left: 57%;
-
     animation-duration: 10s;
-
     animation-delay: 5s;
-
 }
 
 .hearts span:nth-child(6) {
-
     left: 70%;
-
     animation-duration: 14s;
-
     animation-delay: 3s;
-
 }
 
 .hearts span:nth-child(7) {
-
     left: 83%;
-
     animation-duration: 11s;
-
     animation-delay: 6s;
-
 }
 
 .hearts span:nth-child(8) {
-
     left: 94%;
-
     animation-duration: 13s;
-
     animation-delay: 2s;
-
 }
 
 
 @keyframes floatHeart {
 
     0% {
-
         transform:
             translateY(0)
-            rotate(0deg)
+            rotate(0)
             scale(.8);
 
         opacity: 0;
-
     }
 
     15% {
-
         opacity: .8;
-
     }
 
     100% {
-
         transform:
             translateY(-110vh)
             rotate(360deg)
             scale(1.2);
 
         opacity: 0;
-
     }
-
 }
 
 
-/* =====================================================
-   CONTAINER
-===================================================== */
+/* ================= CONTAINER ================= */
 
 .container {
 
@@ -408,13 +308,10 @@ body {
     justify-content: center;
 
     padding: 20px;
-
 }
 
 
-/* =====================================================
-   CARD
-===================================================== */
+/* ================= CARD ================= */
 
 .card {
 
@@ -429,21 +326,11 @@ body {
     border-radius: 30px;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.08
-        );
+        rgba(255,255,255,.08);
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.16
-        );
+        rgba(255,255,255,.16);
 
     backdrop-filter:
         blur(25px);
@@ -452,62 +339,45 @@ body {
         blur(25px);
 
     box-shadow:
-
-        0 30px 80px
-        rgba(0, 0, 0, .55),
-
+        0 30px 80px rgba(0,0,0,.55),
         inset 0 1px
         rgba(255,255,255,.15);
 
     animation:
-        cardAppear
-        .8s ease;
-
+        cardAppear .7s ease;
 }
 
 
 @keyframes cardAppear {
 
     from {
-
         opacity: 0;
-
         transform:
-            translateY(35px)
+            translateY(30px)
             scale(.95);
-
     }
 
     to {
-
         opacity: 1;
-
         transform:
             translateY(0)
             scale(1);
-
     }
-
 }
 
 
-/* =====================================================
-   ICON
-===================================================== */
+/* ================= TITLE ================= */
 
-.heart-icon,
-.question-icon {
+.heart {
 
-    font-size: 58px;
+    font-size: 60px;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 
     display: inline-block;
 
     animation:
-        heartbeat
-        1.8s infinite;
-
+        heartbeat 1.7s infinite;
 }
 
 
@@ -515,27 +385,16 @@ body {
 
     0%,
     100% {
-
-        transform:
-            scale(1);
-
+        transform: scale(1);
     }
 
     50% {
-
-        transform:
-            scale(1.15);
-
+        transform: scale(1.15);
     }
-
 }
 
 
-/* =====================================================
-   TITLE
-===================================================== */
-
-.small-title {
+.subtitle {
 
     color:
         var(--pink-light);
@@ -545,57 +404,48 @@ body {
     letter-spacing: 4px;
 
     margin-bottom: 10px;
-
 }
 
 
 h1 {
 
-    font-size: 31px;
+    font-size: 32px;
 
     margin-bottom: 12px;
-
 }
 
 
 .description {
 
-    color:
-        #f2cbd8;
+    color: #f3cbd9;
 
     font-size: 14px;
 
     line-height: 1.7;
 
     margin-bottom: 28px;
-
 }
 
 
-/* =====================================================
-   INPUT
-===================================================== */
+/* ================= INPUT ================= */
 
-.input-box {
+.input-group {
 
     text-align: left;
 
     margin-bottom: 18px;
-
 }
 
 
-.input-box label {
+.input-group label {
 
     display: block;
 
     margin-bottom: 8px;
 
-    color:
-        #ffdce7;
+    color: #ffdce7;
 
     font-size: 14px;
-
 }
 
 
@@ -611,33 +461,19 @@ textarea {
     color: white;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .09
-        );
+        rgba(255,255,255,.08);
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .15
-        );
+        rgba(255,255,255,.15);
 
     border-radius: 15px;
 
-    padding:
-        14px
-        16px;
+    padding: 14px 16px;
 
     font-size: 15px;
 
-    transition:
-        .3s ease;
-
+    transition: .3s;
 }
 
 
@@ -645,13 +481,7 @@ input::placeholder,
 textarea::placeholder {
 
     color:
-        rgba(
-            255,
-            255,
-            255,
-            .4
-        );
-
+        rgba(255,255,255,.4);
 }
 
 
@@ -662,37 +492,18 @@ textarea:focus {
         var(--pink);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .13
-        );
+        rgba(255,255,255,.12);
 
     box-shadow:
-
         0 0 0 3px
-        rgba(
-            255,
-            92,
-            145,
-            .1
-        ),
+        rgba(255,92,145,.1),
 
         0 0 25px
-        rgba(
-            255,
-            92,
-            145,
-            .12
-        );
-
+        rgba(255,92,145,.15);
 }
 
 
-/* =====================================================
-   BUTTON
-===================================================== */
+/* ================= BUTTON ================= */
 
 .main-button {
 
@@ -721,16 +532,9 @@ textarea:focus {
 
     box-shadow:
         0 10px 30px
-        rgba(
-            255,
-            60,
-            120,
-            .25
-        );
+        rgba(255,60,120,.25);
 
-    transition:
-        .3s ease;
-
+    transition: .3s;
 }
 
 
@@ -741,13 +545,7 @@ textarea:focus {
 
     box-shadow:
         0 15px 35px
-        rgba(
-            255,
-            60,
-            120,
-            .4
-        );
-
+        rgba(255,60,120,.4);
 }
 
 
@@ -755,44 +553,38 @@ textarea:focus {
 
     transform:
         scale(.97);
-
 }
 
 
-/* =====================================================
-   QUESTION
-===================================================== */
+/* ================= QUESTION ================= */
 
 .question-icon {
 
-    animation:
-        floatingMail
-        2s infinite ease-in-out;
+    font-size: 55px;
 
+    margin-bottom: 10px;
+
+    animation:
+        floating 2s infinite ease-in-out;
 }
 
 
-@keyframes floatingMail {
+@keyframes floating {
 
     0%,
     100% {
-
         transform:
             translateY(0);
-
     }
 
     50% {
-
         transform:
             translateY(-8px);
-
     }
-
 }
 
 
-.question-counter {
+.counter {
 
     color:
         var(--pink-light);
@@ -801,45 +593,32 @@ textarea:focus {
 
     letter-spacing: 3px;
 
-    margin-bottom: 14px;
-
+    margin-bottom: 15px;
 }
 
 
-/* =====================================================
-   PROGRESS
-===================================================== */
-
-.progress-background {
+.progress-bg {
 
     width: 100%;
 
     height: 5px;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .1
-        );
+        rgba(255,255,255,.1);
 
     border-radius: 20px;
 
     overflow: hidden;
 
     margin-bottom: 28px;
-
 }
 
 
-.progress-bar {
+.progress {
 
     height: 100%;
 
     width: 20%;
-
-    border-radius: 20px;
 
     background:
         linear-gradient(
@@ -850,22 +629,12 @@ textarea:focus {
 
     box-shadow:
         0 0 15px
-        rgba(
-            255,
-            92,
-            145,
-            .8
-        );
+        rgba(255,92,145,.8);
 
     transition:
         width .5s ease;
-
 }
 
-
-/* =====================================================
-   QUESTION TEXT
-===================================================== */
 
 .question {
 
@@ -884,38 +653,25 @@ textarea:focus {
     margin-bottom: 20px;
 
     animation:
-        questionAppear
-        .5s ease;
-
+        questionAppear .5s ease;
 }
 
 
 @keyframes questionAppear {
 
     from {
-
         opacity: 0;
-
         transform:
-            translateX(25px);
-
+            translateX(20px);
     }
 
     to {
-
         opacity: 1;
-
         transform:
             translateX(0);
-
     }
-
 }
 
-
-/* =====================================================
-   TEXTAREA
-===================================================== */
 
 textarea {
 
@@ -926,25 +682,14 @@ textarea {
     line-height: 1.6;
 
     margin-bottom: 15px;
-
 }
 
 
-/* =====================================================
-   FINAL
-===================================================== */
+/* ================= FINISH ================= */
 
 .final-heart {
 
     font-size: 65px;
-
-}
-
-
-.final-description {
-
-    margin-bottom: 25px;
-
 }
 
 
@@ -954,15 +699,10 @@ textarea {
         var(--pink-light);
 
     font-weight: bold;
-
 }
 
 
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-.whatsapp-button {
+.whatsapp {
 
     background:
         linear-gradient(
@@ -973,33 +713,17 @@ textarea {
 
     box-shadow:
         0 10px 30px
-        rgba(
-            37,
-            211,
-            102,
-            .25
-        );
-
+        rgba(37,211,102,.25);
 }
 
 
-.whatsapp-button:hover {
+.whatsapp:hover {
 
     box-shadow:
         0 15px 35px
-        rgba(
-            37,
-            211,
-            102,
-            .4
-        );
-
+        rgba(37,211,102,.4);
 }
 
-
-/* =====================================================
-   SECONDARY BUTTON
-===================================================== */
 
 .secondary-button {
 
@@ -1014,118 +738,66 @@ textarea {
     border-radius: 15px;
 
     color:
-        rgba(
-            255,
-            255,
-            255,
-            .7
-        );
+        rgba(255,255,255,.7);
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .07
-        );
+        rgba(255,255,255,.07);
 
     cursor: pointer;
-
-    transition: .3s;
-
 }
 
 
 .secondary-button:hover {
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .12
-        );
-
+        rgba(255,255,255,.12);
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* ================= FOOTER ================= */
 
 .footer {
 
     margin-top: 22px;
 
     color:
-        rgba(
-            255,
-            255,
-            255,
-            .35
-        );
+        rgba(255,255,255,.35);
 
     font-size: 11px;
-
 }
 
 
-/* =====================================================
-   HIDDEN
-===================================================== */
+/* ================= HIDDEN ================= */
 
 .hidden {
 
     display: none !important;
-
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* ================= MOBILE ================= */
 
 @media (max-width: 500px) {
 
     .container {
-
         padding: 15px;
-
     }
-
 
     .card {
-
-        padding:
-            32px
-            22px;
-
-        border-radius:
-            25px;
-
+        padding: 32px 22px;
+        border-radius: 25px;
     }
-
 
     h1 {
-
         font-size: 27px;
-
     }
-
 
     .question {
-
         font-size: 19px;
-
     }
 
-
-    .heart-icon,
-    .question-icon {
-
+    .heart {
         font-size: 50px;
-
     }
-
 }
 ```
