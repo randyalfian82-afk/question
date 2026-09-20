@@ -1,34 +1,21 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Untuk Kamu ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-    <!-- ================= BACKGROUND ================= -->
-
+    <!-- BACKGROUND -->
     <div class="background">
-
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-
-        <div class="stars">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
 
         <div class="hearts">
             <span>♥</span>
@@ -41,40 +28,39 @@
             <span>♡</span>
         </div>
 
+        <div class="stars">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
     </div>
 
 
-    <!-- ================= MAIN ================= -->
-
+    <!-- CONTAINER -->
     <main class="container">
 
-
         <!-- ================= LOGIN ================= -->
-
         <section class="card" id="loginPage">
 
-            <div class="heart-icon">
-                ❤️
-            </div>
+            <div class="heart">❤️</div>
 
-            <p class="small-title">
-                SOMETHING SPECIAL
-            </p>
+            <p class="subtitle">SOMETHING SPECIAL</p>
 
-            <h1>
-                Hai, Kamu...
-            </h1>
+            <h1>Hai, Kamu...</h1>
 
             <p class="description">
                 Ada beberapa hal yang ingin aku tanyakan.
                 <br>
-                Jawab saja dengan apa yang kamu rasakan. ✨
+                Jawab dengan apa yang kamu rasakan. ✨
             </p>
 
 
-            <!-- NAMA -->
-
-            <div class="input-box">
+            <div class="input-group">
 
                 <label for="nama">
                     Nama Lengkap
@@ -90,9 +76,7 @@
             </div>
 
 
-            <!-- TANGGAL LAHIR -->
-
-            <div class="input-box">
+            <div class="input-group">
 
                 <label for="tanggalLahir">
                     Tanggal Lahir
@@ -109,12 +93,12 @@
 
 
             <button
+                type="button"
                 class="main-button"
                 id="loginButton"
             >
                 Masuk ❤️
             </button>
-
 
             <p class="footer">
                 dibuat dengan sedikit rasa ❤️
@@ -123,9 +107,7 @@
         </section>
 
 
-
         <!-- ================= PERTANYAAN ================= -->
-
         <section
             class="card hidden"
             id="questionPage"
@@ -136,35 +118,26 @@
             </div>
 
             <p
-                class="question-counter"
+                class="counter"
                 id="questionCounter"
             >
                 PERTANYAAN 1 / 5
             </p>
 
 
-            <!-- PROGRESS -->
-
-            <div class="progress-background">
-
+            <div class="progress-bg">
                 <div
-                    class="progress-bar"
+                    class="progress"
                     id="progressBar"
                 ></div>
-
             </div>
 
-
-            <!-- PERTANYAAN -->
 
             <div
                 class="question"
                 id="questionText"
-            >
-            </div>
+            ></div>
 
-
-            <!-- JAWABAN -->
 
             <textarea
                 id="answerInput"
@@ -173,6 +146,7 @@
 
 
             <button
+                type="button"
                 class="main-button"
                 id="nextButton"
             >
@@ -187,19 +161,17 @@
         </section>
 
 
-
         <!-- ================= SELESAI ================= -->
-
         <section
             class="card hidden"
             id="finishPage"
         >
 
-            <div class="heart-icon final-heart">
+            <div class="heart final-heart">
                 💖
             </div>
 
-            <p class="small-title">
+            <p class="subtitle">
                 EVERYTHING IS DONE
             </p>
 
@@ -207,9 +179,11 @@
                 Terima Kasih
             </h1>
 
-            <p class="description final-description">
+
+            <p class="description">
 
                 Semua pertanyaan sudah kamu jawab,
+
                 <span id="finalName"></span>.
 
                 <br><br>
@@ -221,7 +195,8 @@
 
 
             <button
-                class="main-button whatsapp-button"
+                type="button"
+                class="main-button whatsapp"
                 id="whatsappButton"
             >
                 💬 Kirim ke WhatsApp
@@ -229,6 +204,7 @@
 
 
             <button
+                type="button"
                 class="secondary-button"
                 id="restartButton"
             >
@@ -242,15 +218,12 @@
 
         </section>
 
-
     </main>
 
 
     <!-- JAVASCRIPT -->
-
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 
 </body>
-
 </html>
 ```
