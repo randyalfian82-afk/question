@@ -1,31 +1,26 @@
-/* =====================================================
-   PENGATURAN WHATSAPP
-===================================================== */
-
-/*
-    GANTI NOMOR DI BAWAH INI DENGAN
-    NOMOR WHATSAPP YANG AKAN MENERIMA JAWABAN.
-
-    Contoh:
-
-    Nomor asli:
-    081234567890
-
-    Tulis:
-    6281234567890
-
-    Jangan menggunakan:
-    +62
-    spasi
-    tanda -
-*/
+```javascript
+// =====================================================
+// NOMOR WHATSAPP TUJUAN
+// =====================================================
+//
+// Contoh:
+// 081234567890
+//
+// menjadi:
+// 6281234567890
+//
+// Jangan pakai:
+// +62
+// spasi
+// tanda -
+//
 
 const nomorWhatsApp = "6289508350068";
 
 
-/* =====================================================
-   DAFTAR PERTANYAAN
-===================================================== */
+// =====================================================
+// PERTANYAAN
+// =====================================================
 
 const questions = [
 
@@ -42,9 +37,9 @@ const questions = [
 ];
 
 
-/* =====================================================
-   DATA PENGGUNA
-===================================================== */
+// =====================================================
+// DATA
+// =====================================================
 
 let currentQuestion = 0;
 
@@ -55,9 +50,9 @@ let userBirthday = "";
 let answers = [];
 
 
-/* =====================================================
-   AMBIL ELEMENT HTML
-===================================================== */
+// =====================================================
+// ELEMENT
+// =====================================================
 
 const loginPage =
     document.getElementById("loginPage");
@@ -68,23 +63,13 @@ const questionPage =
 const finishPage =
     document.getElementById("finishPage");
 
+
 const namaInput =
     document.getElementById("nama");
 
 const birthdayInput =
     document.getElementById("tanggalLahir");
 
-const questionCounter =
-    document.getElementById("questionCounter");
-
-const progressBar =
-    document.getElementById("progressBar");
-
-const questionText =
-    document.getElementById("questionText");
-
-const answerInput =
-    document.getElementById("answerInput");
 
 const loginButton =
     document.getElementById("loginButton");
@@ -98,13 +83,33 @@ const whatsappButton =
 const restartButton =
     document.getElementById("restartButton");
 
+
+const questionCounter =
+    document.getElementById("questionCounter");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const questionText =
+    document.getElementById("questionText");
+
+const answerInput =
+    document.getElementById("answerInput");
+
 const finalName =
     document.getElementById("finalName");
 
 
-/* =====================================================
-   FUNGSI MASUK
-===================================================== */
+// =====================================================
+// CEK ELEMENT
+// =====================================================
+
+console.log("JavaScript berhasil dimuat.");
+
+
+// =====================================================
+// MASUK
+// =====================================================
 
 function masuk() {
 
@@ -115,42 +120,43 @@ function masuk() {
         birthdayInput.value.trim();
 
 
-    /*
-        Tidak ada pengecekan apakah
-        nama atau tanggal tersebut benar.
+    // Tidak perlu cek benar/salah.
+    // Hanya memastikan tidak kosong.
 
-        Yang penting tidak kosong.
-    */
-
-    if (
-        nama === "" ||
-        tanggal === ""
-    ) {
+    if (nama === "") {
 
         alert(
-            "Nama dan tanggal lahirnya diisi dulu ya ❤️"
+            "Nama lengkapnya diisi dulu ya ❤️"
         );
 
-        return;
+        namaInput.focus();
 
+        return;
     }
 
 
-    /* Simpan data */
+    if (tanggal === "") {
+
+        alert(
+            "Tanggal lahirnya diisi dulu ya ❤️"
+        );
+
+        birthdayInput.focus();
+
+        return;
+    }
+
 
     userName = nama;
 
     userBirthday = tanggal;
-
-
-    /* Reset pertanyaan */
 
     currentQuestion = 0;
 
     answers = [];
 
 
-    /* Pindah halaman */
+    // Ganti halaman
 
     loginPage.classList.add("hidden");
 
@@ -159,56 +165,38 @@ function masuk() {
     finishPage.classList.add("hidden");
 
 
-    /* Tampilkan pertanyaan pertama */
-
     tampilkanPertanyaan();
-
 }
 
 
-/* =====================================================
-   TAMPILKAN PERTANYAAN
-===================================================== */
+// =====================================================
+// TAMPILKAN PERTANYAAN
+// =====================================================
 
 function tampilkanPertanyaan() {
 
-    /* Nomor */
-
     questionCounter.textContent =
-        `PERTANYAAN ${currentQuestion + 1} / ${questions.length}`;
+        "PERTANYAAN " +
+        (currentQuestion + 1) +
+        " / " +
+        questions.length;
 
-
-    /* Pertanyaan */
 
     questionText.textContent =
         questions[currentQuestion];
 
 
-    /* Progress */
-
     const progress =
         ((currentQuestion + 1) /
         questions.length) * 100;
 
+
     progressBar.style.width =
-        `${progress}%`;
+        progress + "%";
 
-
-    /* Kosongkan textarea */
 
     answerInput.value = "";
 
-
-    /* Focus */
-
-    setTimeout(() => {
-
-        answerInput.focus();
-
-    }, 300);
-
-
-    /* Tombol */
 
     if (
         currentQuestion ===
@@ -222,23 +210,26 @@ function tampilkanPertanyaan() {
 
         nextButton.textContent =
             "Lanjut ❤️";
-
     }
 
+
+    setTimeout(function () {
+
+        answerInput.focus();
+
+    }, 200);
 }
 
 
-/* =====================================================
-   PERTANYAAN BERIKUTNYA
-===================================================== */
+// =====================================================
+// NEXT QUESTION
+// =====================================================
 
 function nextQuestion() {
 
     const answer =
         answerInput.value.trim();
 
-
-    /* Cek jawaban */
 
     if (answer === "") {
 
@@ -249,17 +240,12 @@ function nextQuestion() {
         answerInput.focus();
 
         return;
-
     }
 
-
-    /* Simpan jawaban */
 
     answers[currentQuestion] =
         answer;
 
-
-    /* Cek apakah masih ada */
 
     if (
         currentQuestion <
@@ -273,15 +259,13 @@ function nextQuestion() {
     } else {
 
         tampilkanHalamanSelesai();
-
     }
-
 }
 
 
-/* =====================================================
-   HALAMAN SELESAI
-===================================================== */
+// =====================================================
+// HALAMAN SELESAI
+// =====================================================
 
 function tampilkanHalamanSelesai() {
 
@@ -292,19 +276,14 @@ function tampilkanHalamanSelesai() {
 
     finalName.textContent =
         userName;
-
 }
 
 
-/* =====================================================
-   KIRIM KE WHATSAPP
-===================================================== */
+// =====================================================
+// KIRIM WHATSAPP
+// =====================================================
 
 function kirimWhatsApp() {
-
-    /*
-        Pastikan semua jawaban tersedia.
-    */
 
     if (
         answers.length !==
@@ -312,39 +291,38 @@ function kirimWhatsApp() {
     ) {
 
         alert(
-            "Sepertinya masih ada jawaban yang belum diisi ❤️"
+            "Masih ada jawaban yang belum diisi ❤️"
         );
 
         return;
-
     }
 
 
-    /*
-        Pesan WhatsApp.
-    */
+    let message = "";
 
-    let message =
-
-`💌 *ADA YANG MAU AKU CERITAKAN...*
-
-Halo ❤️
-
-👤 *Nama:*
-${userName}
-
-🎂 *Tanggal Lahir:*
-${userBirthday}
-
-━━━━━━━━━━━━━━━━━━━━
-
-`;
+    message +=
+        "💌 ADA YANG MAU AKU CERITAKAN...\n\n";
 
 
-    /*
-        Masukkan semua pertanyaan
-        dan jawaban.
-    */
+    message +=
+        "Halo ❤️\n\n";
+
+
+    message +=
+        "👤 Nama:\n" +
+        userName +
+        "\n\n";
+
+
+    message +=
+        "🎂 Tanggal Lahir:\n" +
+        userBirthday +
+        "\n\n";
+
+
+    message +=
+        "━━━━━━━━━━━━━━━━━━\n\n";
+
 
     for (
         let i = 0;
@@ -353,72 +331,59 @@ ${userBirthday}
     ) {
 
         message +=
+            "❤️ PERTANYAAN " +
+            (i + 1) +
+            "\n\n";
 
-`❤️ *PERTANYAAN ${i + 1}*
 
-${questions[i]}
+        message +=
+            questions[i] +
+            "\n\n";
 
-💭 *Jawaban:*
-${answers[i]}
 
-━━━━━━━━━━━━━━━━━━━━
+        message +=
+            "💭 Jawaban:\n" +
+            answers[i] +
+            "\n\n";
 
-`;
 
+        message +=
+            "━━━━━━━━━━━━━━━━━━\n\n";
     }
 
 
-    /*
-        Penutup.
-    */
+    message +=
+        "✨ Semua pertanyaan sudah dijawab.\n\n";
+
 
     message +=
+        "Terima kasih sudah meluangkan waktu " +
+        "untuk menjawab semuanya. ❤️";
 
-`✨ Semua pertanyaan sudah dijawab.
-
-Terima kasih sudah meluangkan waktu
-untuk menjawab semuanya. ❤️`;
-
-
-    /*
-        Encode pesan agar aman
-        dimasukkan ke URL WhatsApp.
-    */
 
     const encodedMessage =
         encodeURIComponent(message);
 
 
-    /*
-        Buat URL WhatsApp.
-
-        Format:
-        https://wa.me/nomor?text=pesan
-    */
-
     const whatsappURL =
-        `https://wa.me/${nomorWhatsApp}?text=${encodedMessage}`;
+        "https://wa.me/" +
+        nomorWhatsApp +
+        "?text=" +
+        encodedMessage;
 
-
-    /*
-        Buka WhatsApp di tab baru.
-    */
 
     window.open(
         whatsappURL,
         "_blank"
     );
-
 }
 
 
-/* =====================================================
-   RESTART
-===================================================== */
+// =====================================================
+// MULAI LAGI
+// =====================================================
 
 function mulaiLagi() {
-
-    /* Reset semua data */
 
     currentQuestion = 0;
 
@@ -429,8 +394,6 @@ function mulaiLagi() {
     answers = [];
 
 
-    /* Kosongkan input */
-
     namaInput.value = "";
 
     birthdayInput.value = "";
@@ -438,13 +401,9 @@ function mulaiLagi() {
     answerInput.value = "";
 
 
-    /* Reset progress */
-
     progressBar.style.width =
         "20%";
 
-
-    /* Kembali ke login */
 
     finishPage.classList.add("hidden");
 
@@ -454,13 +413,12 @@ function mulaiLagi() {
 
 
     namaInput.focus();
-
 }
 
 
-/* =====================================================
-   EVENT LISTENER
-===================================================== */
+// =====================================================
+// EVENT
+// =====================================================
 
 loginButton.addEventListener(
     "click",
@@ -486,17 +444,15 @@ restartButton.addEventListener(
 );
 
 
-/* =====================================================
-   ENTER DI NAMA
-===================================================== */
+// =====================================================
+// ENTER NAMA
+// =====================================================
 
 namaInput.addEventListener(
     "keydown",
     function(event) {
 
-        if (
-            event.key === "Enter"
-        ) {
+        if (event.key === "Enter") {
 
             birthdayInput.focus();
 
@@ -506,17 +462,15 @@ namaInput.addEventListener(
 );
 
 
-/* =====================================================
-   ENTER DI TANGGAL LAHIR
-===================================================== */
+// =====================================================
+// ENTER TANGGAL
+// =====================================================
 
 birthdayInput.addEventListener(
     "keydown",
     function(event) {
 
-        if (
-            event.key === "Enter"
-        ) {
+        if (event.key === "Enter") {
 
             masuk();
 
@@ -526,9 +480,9 @@ birthdayInput.addEventListener(
 );
 
 
-/* =====================================================
-   CTRL + ENTER UNTUK JAWABAN
-===================================================== */
+// =====================================================
+// CTRL + ENTER JAWABAN
+// =====================================================
 
 answerInput.addEventListener(
     "keydown",
